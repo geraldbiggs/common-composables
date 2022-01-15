@@ -1,6 +1,5 @@
 import { ref, watch, computed } from "vue";
-// import { pipe } from "utilities";
-import * as yup from "yup";
+// import * as yup from "yup";
 
 export const useForm =
   ({ models: entities, bindings = [] }) =>
@@ -340,17 +339,17 @@ export const useForm =
       watchers,
     };
   };
-export const setValidationSchema = (fieldGroups) => {
-  let schemas = Object.keys(fieldGroups).reduce((groups, key) => {
-    return {
-      ...groups,
-      ...{
-        [key]: !fieldGroups[key].isArray
-          ? yup.object(fieldGroups[key].rules)
-          : yup.array().of(yup.object(fieldGroups[key].rules)),
-      },
-    };
-  }, {});
+// export const setValidationSchema = (fieldGroups) => {
+//   let schemas = Object.keys(fieldGroups).reduce((groups, key) => {
+//     return {
+//       ...groups,
+//       ...{
+//         [key]: !fieldGroups[key].isArray
+//           ? yup.object(fieldGroups[key].rules)
+//           : yup.array().of(yup.object(fieldGroups[key].rules)),
+//       },
+//     };
+//   }, {});
 
-  return schemas;
-};
+//   return schemas;
+// };
